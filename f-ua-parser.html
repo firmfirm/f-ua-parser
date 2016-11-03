@@ -1,0 +1,54 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../ua-parser-js/dist/ua-parser.html">
+
+<script>
+  window.FirmFirm = window.FirmFirm || {};
+  FirmFirm.UaParser = (function() {
+    class UaParser extends Polymer.Element {
+      static get is() { return 'f-ua-parser'; }
+      static get config() {
+        return {
+          properties: {
+            ua: {
+              type: String,
+              observer: '_uaChanged',
+            },
+            browser: {
+              type: Object,
+              notify: true,
+            },
+            os: {
+              type: Object,
+              notify: true,
+            },
+            device: {
+              type: Object,
+              notify: true,
+            },
+            cpuArchitecture: {
+              type: String,
+              notify: true,
+            },
+            engine: {
+              type: Object,
+              notify: true,
+            },
+          },
+        }
+      }
+      _uaChanged(ua) {
+        if (!ua) return;
+        const parser = new UAParser();
+        parser.setUA(ua);
+        const result = parser.getResult();
+        this.browser = result.browser;
+        this.device = result.device;
+        this.os = result.os;
+        this.engine = result.engine;
+        this.cpuArchitecture = result.cpu.architecture;
+      }
+    }
+    customElements.define(UaParser.is, UaParser);
+    return UaParser;
+  })();
+</script>

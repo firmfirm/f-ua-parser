@@ -1,0 +1,35 @@
+{
+  "name": "f-ua-parser",
+  "version": "1.0.0",
+  "authors": [
+    "Martynas Kazlauskas <martynas@firmfirm.co>"
+  ],
+  "description": "Web Component wrapper for ua-parser-js",
+  "keywords": [
+    "web-components",
+    "polymer",
+    "ua",
+    "parser",
+    "user-agent",
+    "browser"
+  ],
+  "main": "f-ua-parser.html",
+  "license": "MIT",
+  "homepage": "https://github.com/firmfirm/f-ua-parser/",
+  "ignore": [
+    "/.*"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#2.0-preview",
+    "iron-icon": "PolymerElements/iron-icon#2.0-preview",
+    "iron-iconset-svg": "PolymerElements/iron-iconset-svg#2.0-preview",
+    "ua-parser-js": "firmfirm/ua-parser-js#^0.7.11"
+  },
+  "devDependencies": {
+    "webcomponentsjs": "webcomponents/webcomponentsjs#v1"
+  },
+  "resolutions": {
+    "polymer": "2.0-preview",
+    "webcomponentsjs": "v1"
+  }
+}

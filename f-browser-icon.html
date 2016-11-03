@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="./browsers-iconset.html">
+
+<dom-module id="f-browser-icon">
+  <template>
+    <iron-icon icon="[[_icon]]"></iron-icon>
+  </template>
+  <script>
+    window.FirmFirm = window.FirmFirm || {};
+    FirmFirm.BrowserIcon = class BrowserIcon extends Polymer.Element {
+      static get is() { return 'f-browser-icon'; }
+      static get config() {
+        return {
+          properties: {
+            browser: String,
+            _icon: {
+              type: String,
+              computed: '_computeIcon(browser)',
+            }
+          },
+        }
+      }
+      _computeIcon(browser) {
+        let icon = browser.toLowerCase();
+        if (icon.indexOf('android') >= 0) icon = 'android';
+        else if (icon.indexOf('chromium') >= 0) icon = 'chrome';
+        else if (icon.indexOf('opera') >= 0) icon = 'opera';
+        else if (icon.indexOf('safari') >= 0) icon = 'safari';
+        else if (icon.indexOf('ie') == 0) icon = 'ie';
+        return `browsers:${icon}`;
+      }
+    }
+    customElements.define(FirmFirm.BrowserIcon.is, FirmFirm.BrowserIcon);
+  </script>
+</dom-module>
