@@ -13,14 +13,17 @@ Or see the LICENSE file that comes with this code.
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="../f-browser-icon.html">
     <link rel="import" href="../f-ua-parser.html">
+    <link rel="import" href="../f-os-icon.html">
   </head>
   <body>
     <dom-bind>
       <template>
         <input type="text" value="{{ua::input}}">
-        <f-ua-parser ua="[[ua]]" browser="{{browser}}"></f-ua-parser>
-        <f-browser-icon browser="[[browser.name]]"></f-browser-icon>
-        <span>[[browser.version]]</span>
+        <f-ua-parser ua="[[ua]]" data="{{data}}"></f-ua-parser>
+        <f-browser-icon icon="[[data.browser.name]]"></f-browser-icon>
+        <span>[[data.browser.version]]</span>
+        <f-os-icon icon="[[data.os.name]]"></f-os-icon>
+        <span>[[data.os.version]]</span>
         <p>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36</p>
         <p>Mozilla/5.0 (Linux; U; Android 3.2.1; ru-ru; HTC Flyer P510e Build/HTK75C) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13</p>
         <p>Mozilla/5.0 (X11; Linux i686) AppleWebKit/535.7 (KHTML, like Gecko) Ubuntu/11.10 Chromium/16.0.912.21 Chrome/16.0.912.21 Safari/535.7</p>

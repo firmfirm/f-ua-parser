@@ -9,43 +9,20 @@
       static get config() {
         return {
           properties: {
-            ua: {
-              type: String,
-              observer: '_uaChanged',
-            },
-            browser: {
+            ua: String,
+            data: {
               type: Object,
               notify: true,
-            },
-            os: {
-              type: Object,
-              notify: true,
-            },
-            device: {
-              type: Object,
-              notify: true,
-            },
-            cpuArchitecture: {
-              type: String,
-              notify: true,
-            },
-            engine: {
-              type: Object,
-              notify: true,
+              computed: '_computeData(ua)',
             },
           },
         }
       }
-      _uaChanged(ua) {
+      _computeData(ua) {
         if (!ua) return;
         const parser = new UAParser();
         parser.setUA(ua);
-        const result = parser.getResult();
-        this.browser = result.browser;
-        this.device = result.device;
-        this.os = result.os;
-        this.engine = result.engine;
-        this.cpuArchitecture = result.cpu.architecture;
+        return parser.getResult();
       }
     }
     customElements.define(UaParser.is, UaParser);

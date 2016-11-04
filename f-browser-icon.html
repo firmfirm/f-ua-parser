@@ -1,6 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
-<link rel="import" href="./browsers-iconset.html">
+<link rel="import" href="./f-browser-iconset.html">
 
 <dom-module id="f-browser-icon">
   <template>
@@ -13,21 +13,26 @@
       static get config() {
         return {
           properties: {
-            browser: String,
+            icon: {
+              type: String,
+              reflectToAttribute: true,
+            },
             _icon: {
               type: String,
-              computed: '_computeIcon(browser)',
+              computed: '_computeIcon(icon)',
             }
           },
         }
       }
       _computeIcon(browser) {
+        if (!browser) return;
         let icon = browser.toLowerCase();
         if (icon.indexOf('android') >= 0) icon = 'android';
         else if (icon.indexOf('chromium') >= 0) icon = 'chrome';
         else if (icon.indexOf('opera') >= 0) icon = 'opera';
         else if (icon.indexOf('safari') >= 0) icon = 'safari';
         else if (icon.indexOf('ie') == 0) icon = 'ie';
+        else icon = 'default';
         return `browsers:${icon}`;
       }
     }
