@@ -6,17 +6,15 @@
   FirmFirm.UaParser = (function() {
     class UaParser extends Polymer.Element {
       static get is() { return 'f-ua-parser'; }
-      static get config() {
+      static get properties() {
         return {
-          properties: {
-            ua: String,
-            data: {
-              type: Object,
-              notify: true,
-              computed: '_computeData(ua)',
-            },
+          ua: String,
+          data: {
+            type: Object,
+            notify: true,
+            computed: '_computeData(ua)',
           },
-        }
+        };
       }
       _computeData(ua) {
         if (!ua) return;
