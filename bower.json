@@ -1,6 +1,5 @@
 {
   "name": "f-ua-parser",
-  "version": "2.0.0",
   "authors": [
     "Martynas Kazlauskas <martynas@firmfirm.co>"
   ],
@@ -20,16 +19,12 @@
     "/.*"
   ],
   "dependencies": {
-    "polymer": "firmfirm/polymer#^v2.0.0-alpha.3",
-    "iron-icon": "PolymerElements/iron-icon#2.0-preview",
-    "iron-iconset-svg": "PolymerElements/iron-iconset-svg#2.0-preview",
-    "ua-parser-js": "firmfirm/ua-parser-js#^0.7.11"
+    "polymer": "~2.0.0",
+    "iron-icon": "~2.0.0",
+    "iron-iconset-svg": "~2.0.0",
+    "ua-parser-js": "~0.7.12"
   },
   "devDependencies": {
-    "webcomponentsjs": "webcomponents/webcomponentsjs#v1"
-  },
-  "resolutions": {
-    "webcomponentsjs": "v1",
-    "polymer": "^v2.0.0-alpha.3"
+    "webcomponentsjs": "~1.0.0"
   }
 }
