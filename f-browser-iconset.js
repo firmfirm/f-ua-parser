@@ -1,7 +1,8 @@
-<link rel="import" href="../iron-icon/iron-icon.html">
-<link rel="import" href="../iron-iconset-svg/iron-iconset-svg.html">
+import '@polymer/iron-icon/iron-icon.js';
+import '@polymer/iron-iconset-svg/iron-iconset-svg.js';
+const $_documentContainer = document.createElement('template');
 
-<iron-iconset-svg name="browsers" size="24">
+$_documentContainer.innerHTML = `<iron-iconset-svg name="browsers" size="24">
   <svg>
     <defs>
       <path id="chrome" d="M12,20L15.46,14H15.45C15.79,13.4 16,12.73 16,12C16,10.8 15.46,9.73 14.62,9H19.41C19.79,9.93 20,10.94 20,12A8,8 0 0,1 12,20M4,12C4,10.54 4.39,9.18 5.07,8L8.54,14H8.55C9.24,15.19 10.5,16 12,16C12.45,16 12.88,15.91 13.29,15.77L10.89,19.91C7,19.37 4,16.04 4,12M15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9A3,3 0 0,1 15,12M12,4C14.96,4 17.54,5.61 18.92,8H12C10.06,8 8.45,9.38 8.08,11.21L5.7,7.08C7.16,5.21 9.44,4 12,4M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path>
@@ -14,4 +15,6 @@
       <path id="default" d="M10,19H13V22H10V19M12,2C17.35,2.22 19.68,7.62 16.5,11.67C15.67,12.67 14.33,13.33 13.67,14.17C13,15 13,16 13,17H10C10,15.33 10,13.92 10.67,12.92C11.33,11.92 12.67,11.33 13.5,10.67C15.92,8.43 15.32,5.26 12,5A3,3 0 0,0 9,8H6A6,6 0 0,1 12,2Z"></path>
     </defs>
   </svg>
-</iron-iconset-svg>
+</iron-iconset-svg>`;
+
+document.head.appendChild($_documentContainer.content);
